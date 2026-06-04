@@ -26,6 +26,11 @@ Trendora is a basic e-commerce web application developed with Laravel, PHP, Blad
 * Add, edit, and delete products
 * Laravel validation for admin product forms
 * Products are stored and retrieved from MySQL database
+* Role table for admin and user roles
+* Pivot table for assigning roles to users
+* Admin user seeder
+* Default admin account creation
+* Role-based admin login system is planned as the next development step
 
 ## Database
 
@@ -51,6 +56,26 @@ The products table includes:
 * description
 * created_at
 * updated_at
+
+Additional tables added for role management:
+
+* roles
+* role_user
+* users
+
+Default roles:
+
+* admin
+* user
+
+Default admin account:
+
+```txt
+Email: admin@trendora.com
+Password: 12345678
+```
+
+This admin account will be used for the role-based login system in the next development step.
 
 ## Installation Steps
 
@@ -84,6 +109,8 @@ php artisan migrate
 
 ```bash
 php artisan db:seed --class=ProductSeeder
+php artisan db:seed --class=RoleSeeder
+php artisan db:seed --class=AdminUserSeeder
 ```
 
 8. Start the Laravel development server:
