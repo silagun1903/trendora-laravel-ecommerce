@@ -16,7 +16,11 @@
         <a href="/">Home</a>
         <a href="{{ route('products.index') }}">Products</a>
         <a href="/#categories">Categories</a>
-        <a href="{{ route('admin.products.index') }}">Admin Panel</a>
+        @auth
+            @if(Auth::user()->hasRole('admin'))
+                <a href="{{ route('admin.products.index') }}">Admin Panel</a>
+            @endif
+        @endauth
     </nav>
 
     <div class="header-actions">

@@ -21,9 +21,20 @@
     </nav>
 
     <div class="header-actions">
-        <input type="text" placeholder="Search products...">
-       <a href="{{ route('cart.index') }}" class="cart-link">Cart</a>
+    <a href="{{ route('cart.index') }}" class="cart-link">Cart</a>
+
+    @auth
+        <span class="user-name">{{ Auth::user()->name }}</span>
+
+        <form action="{{ route('logout') }}" method="POST" class="logout-form">
+            @csrf
+            <button type="submit">Logout</button>
+        </form>
+    @else
+        <a href="{{ route('login') }}" class="cart-link">Login</a>
+    @endauth
     </div>
+
 </header>
 
 <section class="hero">
@@ -120,7 +131,11 @@
         <div>
             <h4>Project</h4>
             <a href="{{ route('cart.index') }}">Cart</a>
+            @auth
+        @if(Auth::user()->hasRole('admin'))
             <a href="{{ route('admin.products.index') }}">Admin Panel</a>
+        @endif
+    @endauth
         </div>
     </div>
 
