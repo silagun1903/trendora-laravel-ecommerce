@@ -98,10 +98,7 @@
                 <button type="submit" class="clear-btn">Clear Cart</button>
             </form>
 
-            <form action="{{ route('checkout') }}" method="POST">
-                @csrf
-                <button type="submit" class="checkout-btn">Checkout</button>
-            </form>
+            <a href="{{ route('checkout') }}" class="checkout-btn">Checkout</a>
         </div>
     @else
         <div class="empty-cart">

@@ -2,7 +2,7 @@ HATİCE SILA GÜN 20222022432
 
 # Trendora - Laravel E-Commerce Project
 
-Trendora is a Laravel-based e-commerce web application developed with PHP, MySQL, Blade, HTML, CSS, and JavaScript. The project includes product listing, product details, database-based shopping cart operations, checkout process, contact section, admin product management, login/logout system, role management, and admin panel protection with middleware.
+Trendora is a Laravel-based e-commerce web application developed with PHP, MySQL, Blade, HTML, CSS, and JavaScript. The project includes product listing, product details, database-based shopping cart operations, checkout process, order creation, contact section, admin product management, login/logout system, role management, and admin panel protection with middleware.
 
 ## Technologies Used
 
@@ -29,7 +29,10 @@ Trendora is a Laravel-based e-commerce web application developed with PHP, MySQL
 * Increase and decrease product quantity in cart
 * Remove products from cart
 * Clear cart
-* Checkout success page
+* Checkout form with customer information
+* Order creation system
+* Order items stored in database
+* Checkout success page with order number
 * Contact section
 * Admin product management panel
 * Add product
@@ -125,6 +128,46 @@ Fields:
 * product_id
 * quantity
 * price
+* created_at
+* updated_at
+
+### orders
+
+The `orders` table stores customer order information.
+
+Fields:
+
+* id
+* user_id
+* name
+* email
+* phone
+* address
+* city
+* country
+* zip_code
+* subtotal
+* shipping_price
+* total
+* shipping_method
+* payment_method
+* status
+* created_at
+* updated_at
+
+### order_items
+
+The `order_items` table stores products inside each order.
+
+Fields:
+
+* id
+* order_id
+* product_id
+* product_name
+* price
+* quantity
+* total
 * created_at
 * updated_at
 
@@ -224,6 +267,14 @@ http://127.0.0.1:8000/cart
 
 The cart page displays products added to the cart. The cart system stores cart records in the MySQL database. Users can increase or decrease product quantity, remove products, clear the cart, and continue to checkout.
 
+### Checkout Page
+
+```txt
+http://127.0.0.1:8000/checkout
+```
+
+The checkout page collects customer billing information, shipping method, and payment method. After placing an order, order information is saved into the `orders` and `order_items` tables.
+
 ### Login Page
 
 ```txt
@@ -264,7 +315,7 @@ Access rules:
 * Guests cannot access the cart page.
 * Guests cannot add products to the cart.
 * Guests cannot access the admin panel.
-* Authenticated users can use the cart system.
+* Authenticated users can use the cart and checkout system.
 * Logged-in users without admin role cannot access the admin panel.
 * Users with admin role can access the admin product management panel.
 
@@ -288,6 +339,21 @@ Each cart item is connected to:
 * quantity
 * price
 
+## Order System
+
+The order system stores completed checkout information in the database.
+
+Order process:
+
+1. User adds products to cart.
+2. User opens checkout page.
+3. User enters billing and address information.
+4. User selects shipping and payment method.
+5. System creates an order record.
+6. System creates order item records.
+7. Cart records are cleared after successful order.
+8. User sees order success page with order number and total price.
+
 ## Laravel MVC Structure
 
 The project follows Laravel MVC structure:
@@ -308,10 +374,13 @@ The project follows Laravel MVC structure:
 * `app/Models/User.php`
 * `app/Models/Role.php`
 * `app/Models/Cart.php`
+* `app/Models/Order.php`
+* `app/Models/OrderItem.php`
 
 ### Controllers
 
 * `app/Http/Controllers/CartController.php`
+* `app/Http/Controllers/OrderController.php`
 * `app/Http/Controllers/AuthController.php`
 * `app/Http/Controllers/Admin/ProductController.php`
 
@@ -326,6 +395,7 @@ The project follows Laravel MVC structure:
 * `resources/views/products/index.blade.php`
 * `resources/views/products/show.blade.php`
 * `resources/views/cart/index.blade.php`
+* `resources/views/checkout/index.blade.php`
 * `resources/views/checkout/success.blade.php`
 * `resources/views/admin/products/index.blade.php`
 * `resources/views/admin/products/create.blade.php`
@@ -348,27 +418,26 @@ Add core e-commerce features with product CRUD, cart, checkout, and filters
 Add roles and admin user seeders
 Add login logout and protect admin panel with role middleware
 Add database cart model and cart storage
+Add order and order item checkout system
 ```
 
 ## Planned Next Development
 
-The next development step is to improve the order system with database tables.
+The next development step is to add admin order management.
 
 Planned features:
 
-* orders table
-* order_items table
-* Order model
-* OrderItem model
-* OrderController
-* Admin order management
+* Admin orders list page
+* Admin order detail page
 * Order status update system
-* Checkout form with customer information
+* Filter orders by status
+* Show order items in admin panel
 
 ## Project Purpose
 
-The purpose of this project is to demonstrate the development of a Laravel e-commerce website using MVC structure. The project includes routing, database operations, Blade templates, form validation, database-based cart management, authentication, role-based authorization, middleware usage, and admin product management.
+The purpose of this project is to demonstrate the development of a Laravel e-commerce website using MVC structure. The project includes routing, database operations, Blade templates, form validation, database-based cart management, authentication, role-based authorization, middleware usage, order creation, and admin product management.
 
 ## Developer
 
 Developed as a Laravel e-commerce project.
+

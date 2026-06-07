@@ -1113,3 +1113,128 @@ footer {
     cursor: pointer;
     font-weight: bold;
 }
+.checkout-page {
+    padding: 70px 8%;
+    background: #f6f4ff;
+    min-height: 80vh;
+}
+
+.checkout-page h1 {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 35px;
+    color: #18181b;
+}
+
+.checkout-layout {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 35px;
+}
+
+.checkout-form-card,
+.checkout-summary-card {
+    background: white;
+    padding: 30px;
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.12);
+}
+
+.checkout-form-card h2,
+.checkout-summary-card h2 {
+    margin-bottom: 18px;
+    color: #18181b;
+}
+
+.checkout-form-card input,
+.checkout-form-card textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d8ccff;
+    border-radius: 10px;
+    outline: none;
+    margin-bottom: 14px;
+    font-family: Arial, sans-serif;
+}
+
+.checkout-form-card textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.checkout-form-card input:focus,
+.checkout-form-card textarea:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+}
+
+.checkout-radio {
+    display: block;
+    margin-bottom: 12px;
+    color: #4b5563;
+}
+
+.checkout-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid #eee7ff;
+    padding-bottom: 15px;
+}
+
+.checkout-item img {
+    width: 90px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.checkout-item h3 {
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.checkout-item p {
+    color: #6b7280;
+    margin-bottom: 5px;
+}
+
+.checkout-totals {
+    margin-top: 20px;
+}
+
+.checkout-totals p,
+.checkout-totals h3 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.checkout-totals h3 {
+    color: #7c3aed;
+    font-size: 24px;
+}
+
+.place-order-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 18px;
+}
+
+.checkout-btn {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .checkout-layout {
+        grid-template-columns: 1fr;
+    }
+}

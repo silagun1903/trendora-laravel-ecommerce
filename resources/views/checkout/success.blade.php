@@ -12,10 +12,12 @@
 <header class="top-header">
     <div class="logo">Trendora</div>
 
-   <nav class="navbar">
-        <a href="/">Home</a>
+    <nav class="navbar">
+        <a href="{{ route('home') }}">Home</a>
         <a href="{{ route('products.index') }}">Products</a>
         <a href="/#categories">Categories</a>
+        <a href="/#contact">Contact</a>
+
         @auth
             @if(Auth::user()->hasRole('admin'))
                 <a href="{{ route('admin.products.index') }}">Admin Panel</a>
@@ -25,6 +27,17 @@
 
     <div class="header-actions">
         <a href="{{ route('cart.index') }}" class="cart-link">Cart</a>
+
+        @auth
+            <span class="user-name">{{ Auth::user()->name }}</span>
+
+            <form action="{{ route('logout') }}" method="POST" class="logout-form">
+                @csrf
+                <button type="submit">Logout</button>
+            </form>
+        @else
+            <a href="{{ route('login') }}" class="cart-link">Login</a>
+        @endauth
     </div>
 </header>
 
@@ -38,9 +51,10 @@
             Thank you for shopping with Trendora. Your order has been received.
         </p>
 
-        <h2>Total Paid: ${{ number_format($total, 2) }}</h2>
+        <h2>Order Number: #{{ $order->id }}</h2>
+        <h2>Total Paid: ${{ number_format($order->total, 2) }}</h2>
 
-        <a href="/" class="hero-btn">Back to Home</a>
+        <a href="{{ route('home') }}" class="hero-btn">Back to Home</a>
     </div>
 </section>
 

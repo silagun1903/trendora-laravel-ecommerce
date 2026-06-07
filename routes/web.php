@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
+use App\Http\Controllers\OrderController;
 
 Route::get('/', function () {
     $products = Product::all();
@@ -46,7 +47,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/cart/decrease/{id}', [CartController::class, 'decrease'])->name('cart.decrease');
     Route::post('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
     Route::post('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
-    Route::post('/checkout', [CartController::class, 'checkout'])->name('checkout');
+
+    Route::get('/checkout', [OrderController::class, 'checkout'])->name('checkout');
+    Route::post('/place-order', [OrderController::class, 'placeOrder'])->name('place.order');
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
