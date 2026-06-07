@@ -2,7 +2,7 @@ HATİCE SILA GÜN 20222022432
 
 # Trendora - Laravel E-Commerce Project
 
-Trendora is a Laravel-based e-commerce web application developed with PHP, MySQL, Blade, HTML, CSS, and JavaScript. The project includes product listing, product details, database-based shopping cart operations, checkout process, order creation, admin order management, contact section, admin product management, login/logout system, role management, and admin panel protection with middleware.
+Trendora is a Laravel-based e-commerce web application developed with PHP, MySQL, Blade, HTML, CSS, and JavaScript. The project includes product listing, product details, database-based shopping cart operations, checkout process, order creation, admin dashboard, admin order management, contact section, admin product management, login/logout system, role management, and admin panel protection with middleware.
 
 ## Technologies Used
 
@@ -33,6 +33,8 @@ Trendora is a Laravel-based e-commerce web application developed with PHP, MySQL
 * Order creation system
 * Order items stored in database
 * Checkout success page with order number
+* Admin dashboard page
+* Dashboard cards for total products, total orders, and new orders
 * Admin order management
 * Admin order list page
 * Admin order detail page
@@ -288,6 +290,14 @@ http://127.0.0.1:8000/login
 
 The login page allows the admin user to log in.
 
+### Admin Dashboard
+
+```txt
+http://127.0.0.1:8000/admin
+```
+
+The admin dashboard displays summary cards for total products, total orders, and new orders. It also includes quick links for managing products, managing orders, and adding new products.
+
 ### Admin Products Panel
 
 ```txt
@@ -306,6 +316,10 @@ The admin orders panel allows the admin user to list orders, filter orders by st
 
 ## Admin Panel Features
 
+* Admin dashboard
+* Show total products
+* Show total orders
+* Show new orders
 * List all products
 * Add new product
 * Edit existing product
@@ -334,7 +348,7 @@ Access rules:
 * Guests cannot access the admin panel.
 * Authenticated users can use the cart and checkout system.
 * Logged-in users without admin role cannot access the admin panel.
-* Users with admin role can access product management and order management panels.
+* Users with admin role can access the admin dashboard, product management panel, and order management panel.
 
 ## Shopping Cart System
 
@@ -392,6 +406,22 @@ Available order statuses:
 * Onshipping
 * Completed
 
+## Admin Dashboard
+
+The admin dashboard provides a quick overview of the system.
+
+Dashboard cards:
+
+* Total Products
+* Total Orders
+* New Orders
+
+Dashboard quick actions:
+
+* Manage Products
+* Manage Orders
+* Add New Product
+
 ## Laravel MVC Structure
 
 The project follows Laravel MVC structure:
@@ -436,6 +466,7 @@ The project follows Laravel MVC structure:
 * `resources/views/cart/index.blade.php`
 * `resources/views/checkout/index.blade.php`
 * `resources/views/checkout/success.blade.php`
+* `resources/views/admin/dashboard.blade.php`
 * `resources/views/admin/products/index.blade.php`
 * `resources/views/admin/products/create.blade.php`
 * `resources/views/admin/products/edit.blade.php`
@@ -461,12 +492,14 @@ Add login logout and protect admin panel with role middleware
 Add database cart model and cart storage
 Add order and order item checkout system
 Add admin order management pages
+Add admin dashboard page
 ```
 
 ## Project Purpose
 
-The purpose of this project is to demonstrate the development of a Laravel e-commerce website using MVC structure. The project includes routing, database operations, Blade templates, form validation, database-based cart management, authentication, role-based authorization, middleware usage, order creation, admin product management, and admin order management.
+The purpose of this project is to demonstrate the development of a Laravel e-commerce website using MVC structure. The project includes routing, database operations, Blade templates, form validation, database-based cart management, authentication, role-based authorization, middleware usage, order creation, admin product management, admin order management, and admin dashboard design.
 
 ## Developer
 
 Developed as a Laravel e-commerce project.
+

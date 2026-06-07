@@ -8,6 +8,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+use App\Models\Order;
 
 Route::get('/', function () {
     $products = Product::all();
@@ -54,6 +55,14 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/admin', function () {
+    $productCount = Product::count();
+    $orderCount = Order::count();
+    $newOrderCount = Order::where('status', 'New')->count();
+
+    return view('admin.dashboard', compact('productCount', 'orderCount', 'newOrderCount'));
+})->name('admin.dashboard');
+
     Route::get('/admin/products', [AdminProductController::class, 'index'])->name('admin.products.index');
     Route::get('/admin/products/create', [AdminProductController::class, 'create'])->name('admin.products.create');
     Route::post('/admin/products', [AdminProductController::class, 'store'])->name('admin.products.store');

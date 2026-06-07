@@ -13,6 +13,7 @@
     <div class="logo">Trendora Admin</div>
 
     <nav class="navbar">
+        <a href="{{ route('admin.dashboard') }}">Dashboard</a>
         <a href="/">Store</a>
         <a href="{{ route('admin.products.index') }}">Products</a>
         <a href="{{ route('admin.products.create') }}">Add Product</a>
