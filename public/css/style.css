@@ -1238,3 +1238,99 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+.status-badge {
+    padding: 7px 12px;
+    border-radius: 999px;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    display: inline-block;
+}
+
+.status-new {
+    background: #2563eb;
+}
+
+.status-accepted {
+    background: #0ea5e9;
+}
+
+.status-cancelled {
+    background: #ef4444;
+}
+
+.status-onshipping {
+    background: #f59e0b;
+}
+
+.status-completed {
+    background: #22c55e;
+}
+
+.order-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.order-info-card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.12);
+}
+
+.order-info-card h2 {
+    margin-bottom: 18px;
+    color: #18181b;
+}
+
+.order-info-card p {
+    margin-bottom: 10px;
+    color: #4b5563;
+}
+
+.status-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.status-form label {
+    font-weight: bold;
+    color: #18181b;
+}
+
+.status-form select {
+    padding: 12px;
+    border: 1px solid #d8ccff;
+    border-radius: 10px;
+    outline: none;
+}
+
+.status-form button {
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.order-items-table {
+    margin-top: 30px;
+}
+
+.order-items-table h2 {
+    margin-bottom: 20px;
+    color: #18181b;
+}
+
+@media (max-width: 800px) {
+    .order-detail-grid {
+        grid-template-columns: 1fr;
+    }
+}

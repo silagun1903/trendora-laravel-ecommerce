@@ -12,11 +12,12 @@
 <header class="top-header">
     <div class="logo">Trendora Admin</div>
 
-    <nav class="navbar">
-        <a href="/">Store</a>
-        <a href="{{ route('admin.products.index') }}">Products</a>
-        <a href="{{ route('admin.products.create') }}">Add Product</a>
-    </nav>
+<nav class="navbar">
+    <a href="/">Store</a>
+    <a href="{{ route('admin.products.index') }}">Products</a>
+    <a href="{{ route('admin.products.create') }}">Add Product</a>
+    <a href="{{ route('admin.orders.index') }}">Orders</a>
+</nav>
 </header>
 
 <section class="admin-page">

@@ -2,7 +2,7 @@ HATİCE SILA GÜN 20222022432
 
 # Trendora - Laravel E-Commerce Project
 
-Trendora is a Laravel-based e-commerce web application developed with PHP, MySQL, Blade, HTML, CSS, and JavaScript. The project includes product listing, product details, database-based shopping cart operations, checkout process, order creation, contact section, admin product management, login/logout system, role management, and admin panel protection with middleware.
+Trendora is a Laravel-based e-commerce web application developed with PHP, MySQL, Blade, HTML, CSS, and JavaScript. The project includes product listing, product details, database-based shopping cart operations, checkout process, order creation, admin order management, contact section, admin product management, login/logout system, role management, and admin panel protection with middleware.
 
 ## Technologies Used
 
@@ -33,6 +33,11 @@ Trendora is a Laravel-based e-commerce web application developed with PHP, MySQL
 * Order creation system
 * Order items stored in database
 * Checkout success page with order number
+* Admin order management
+* Admin order list page
+* Admin order detail page
+* Order status update system
+* Order filtering by status
 * Contact section
 * Admin product management panel
 * Add product
@@ -283,15 +288,21 @@ http://127.0.0.1:8000/login
 
 The login page allows the admin user to log in.
 
-### Admin Panel
+### Admin Products Panel
 
 ```txt
 http://127.0.0.1:8000/admin/products
 ```
 
-The admin panel allows product management operations such as adding, editing, showing, and deleting products.
+The admin products panel allows product management operations such as adding, editing, showing, and deleting products.
 
-Admin panel access is protected with authentication and role middleware. Only users with the `admin` role can access the admin product management panel.
+### Admin Orders Panel
+
+```txt
+http://127.0.0.1:8000/admin/orders
+```
+
+The admin orders panel allows the admin user to list orders, filter orders by status, view order details, and update order status.
 
 ## Admin Panel Features
 
@@ -301,6 +312,12 @@ Admin panel access is protected with authentication and role middleware. Only us
 * Show product detail
 * Delete product
 * Validate product form inputs
+* List all orders
+* Filter orders by status
+* Show order detail
+* Show customer information
+* Show order items
+* Update order status
 * Protect admin routes with role middleware
 
 ## Authentication and Authorization
@@ -317,7 +334,7 @@ Access rules:
 * Guests cannot access the admin panel.
 * Authenticated users can use the cart and checkout system.
 * Logged-in users without admin role cannot access the admin panel.
-* Users with admin role can access the admin product management panel.
+* Users with admin role can access product management and order management panels.
 
 ## Shopping Cart System
 
@@ -354,6 +371,27 @@ Order process:
 7. Cart records are cleared after successful order.
 8. User sees order success page with order number and total price.
 
+## Admin Order Management
+
+Admin users can manage orders from the admin panel.
+
+Admin order features:
+
+* View all orders
+* Filter orders by status
+* View order details
+* View customer information
+* View ordered products
+* Update order status
+
+Available order statuses:
+
+* New
+* Accepted
+* Cancelled
+* Onshipping
+* Completed
+
 ## Laravel MVC Structure
 
 The project follows Laravel MVC structure:
@@ -383,6 +421,7 @@ The project follows Laravel MVC structure:
 * `app/Http/Controllers/OrderController.php`
 * `app/Http/Controllers/AuthController.php`
 * `app/Http/Controllers/Admin/ProductController.php`
+* `app/Http/Controllers/Admin/OrderController.php`
 
 ### Middleware
 
@@ -401,6 +440,8 @@ The project follows Laravel MVC structure:
 * `resources/views/admin/products/create.blade.php`
 * `resources/views/admin/products/edit.blade.php`
 * `resources/views/admin/products/show.blade.php`
+* `resources/views/admin/orders/index.blade.php`
+* `resources/views/admin/orders/show.blade.php`
 
 ### Public Files
 
@@ -419,25 +460,13 @@ Add roles and admin user seeders
 Add login logout and protect admin panel with role middleware
 Add database cart model and cart storage
 Add order and order item checkout system
+Add admin order management pages
 ```
-
-## Planned Next Development
-
-The next development step is to add admin order management.
-
-Planned features:
-
-* Admin orders list page
-* Admin order detail page
-* Order status update system
-* Filter orders by status
-* Show order items in admin panel
 
 ## Project Purpose
 
-The purpose of this project is to demonstrate the development of a Laravel e-commerce website using MVC structure. The project includes routing, database operations, Blade templates, form validation, database-based cart management, authentication, role-based authorization, middleware usage, order creation, and admin product management.
+The purpose of this project is to demonstrate the development of a Laravel e-commerce website using MVC structure. The project includes routing, database operations, Blade templates, form validation, database-based cart management, authentication, role-based authorization, middleware usage, order creation, admin product management, and admin order management.
 
 ## Developer
 
 Developed as a Laravel e-commerce project.
-
