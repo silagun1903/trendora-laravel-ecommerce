@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Product;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
@@ -85,24 +84,5 @@ class CartController extends Controller
         Cart::where('user_id', Auth::id())->delete();
 
         return redirect()->back()->with('success', 'Cart cleared successfully.');
-    }
-
-    public function checkout()
-    {
-        $cartItems = Cart::with('product')
-            ->where('user_id', Auth::id())
-            ->get();
-
-        if ($cartItems->isEmpty()) {
-            return redirect()->route('cart.index')->with('success', 'Your cart is empty.');
-        }
-
-        $total = $cartItems->sum(function ($item) {
-            return $item->price * $item->quantity;
-        });
-
-        Cart::where('user_id', Auth::id())->delete();
-
-        return view('checkout.success', compact('total'));
     }
 }

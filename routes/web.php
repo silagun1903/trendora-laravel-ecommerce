@@ -3,12 +3,18 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Order;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
-use App\Models\Order;
+
+/*
+|--------------------------------------------------------------------------
+| Frontend Routes
+|--------------------------------------------------------------------------
+*/
 
 Route::get('/', function () {
     $products = Product::all();
@@ -27,7 +33,7 @@ Route::get('/products', function (Request $request) {
         $query->where('category', $request->category);
     }
 
-    $products = $query->get();
+    $products = $query->paginate(4)->withQueryString();
     $categories = Product::select('category')->distinct()->pluck('category');
 
     return view('products.index', compact('products', 'categories'));
@@ -37,6 +43,11 @@ Route::get('/products/{product}', function (Product $product) {
     return view('products.show', compact('product'));
 })->name('products.show');
 
+/*
+|--------------------------------------------------------------------------
+| Authentication Routes
+|--------------------------------------------------------------------------
+*/
 
 Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
@@ -45,6 +56,12 @@ Route::get('/register', [AuthController::class, 'registerForm'])->name('register
 Route::post('/register', [AuthController::class, 'register'])->name('register.post');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+/*
+|--------------------------------------------------------------------------
+| Cart and Checkout Routes
+|--------------------------------------------------------------------------
+*/
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
@@ -58,13 +75,28 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/place-order', [OrderController::class, 'placeOrder'])->name('place.order');
 });
 
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+*/
+
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin', function () {
+  Route::get('/admin', function () {
     $productCount = Product::count();
     $orderCount = Order::count();
     $newOrderCount = Order::where('status', 'New')->count();
 
-    return view('admin.dashboard', compact('productCount', 'orderCount', 'newOrderCount'));
+    $recentOrders = Order::latest()
+        ->take(5)
+        ->get();
+
+    return view('admin.dashboard', compact(
+        'productCount',
+        'orderCount',
+        'newOrderCount',
+        'recentOrders'
+    ));
 })->name('admin.dashboard');
 
     Route::get('/admin/products', [AdminProductController::class, 'index'])->name('admin.products.index');

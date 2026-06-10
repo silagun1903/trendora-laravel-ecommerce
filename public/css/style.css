@@ -1,3 +1,7 @@
+/* ============================= */
+/* GLOBAL RESET & BASE STYLE */
+/* ============================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -9,6 +13,10 @@ body {
     background: #f7f7fb;
     color: #222;
 }
+
+/* ============================= */
+/* HEADER & NAVBAR */
+/* ============================= */
 
 .top-header {
     width: 100%;
@@ -50,6 +58,10 @@ body {
     border: 1px solid #ddd;
     border-radius: 6px;
 }
+
+/* ============================= */
+/* HOME HERO SECTION */
+/* ============================= */
 
 .header-actions button,
 .product-card button,
@@ -112,6 +124,10 @@ body {
     object-fit: cover;
     border-radius: 20px;
 }
+
+/* ============================= */
+/* HOME CATEGORIES & PRODUCTS */
+/* ============================= */
 
 .categories,
 .products {
@@ -184,13 +200,9 @@ body {
     margin-bottom: 12px;
 }
 
-footer {
-    background: #222;
-    color: white;
-    text-align: center;
-    padding: 25px;
-    margin-top: 40px;
-}
+/* ============================= */
+/* HOME RESPONSIVE DESIGN */
+/* ============================= */
 
 @media (max-width: 900px) {
     .top-header {
@@ -242,6 +254,7 @@ footer {
         margin: 6px;
     }
 }
+
 .hero-image img {
     width: 100%;
     max-width: 420px;
@@ -270,11 +283,13 @@ footer {
     gap: 22px;
     align-items: stretch;
 }
+
 .category-name {
     color: #6b7280;
     font-size: 14px;
     margin-bottom: 8px;
 }
+
 .detail-btn {
     display: inline-block;
     margin-bottom: 10px;
@@ -286,6 +301,10 @@ footer {
 .detail-btn:hover {
     text-decoration: underline;
 }
+
+/* ============================= */
+/* PRODUCT DETAIL PAGE */
+/* ============================= */
 
 .product-detail {
     padding: 70px 8%;
@@ -364,6 +383,11 @@ footer {
         font-size: 32px;
     }
 }
+
+/* ============================= */
+/* CART PAGE */
+/* ============================= */
+
 .cart-link {
     background: linear-gradient(135deg, #7c3aed, #2563eb);
     color: white;
@@ -484,6 +508,11 @@ footer {
         text-align: center;
     }
 }
+
+/* ============================= */
+/* CHECKOUT SUCCESS PAGE */
+/* ============================= */
+
 .checkout-btn {
     background: linear-gradient(135deg, #22c55e, #16a34a);
     color: white;
@@ -543,6 +572,11 @@ footer {
     color: #7c3aed;
     margin-bottom: 25px;
 }
+
+/* ============================= */
+/* ADMIN PRODUCT PAGES */
+/* ============================= */
+
 .admin-page {
     padding: 60px 8%;
     min-height: 80vh;
@@ -646,6 +680,10 @@ footer {
     cursor: pointer;
     font-weight: bold;
 }
+
+/* ============================= */
+/* PRODUCTS LIST PAGE */
+/* ============================= */
 
 .products-page {
     padding: 70px 8%;
@@ -765,6 +803,7 @@ footer {
         font-size: 34px;
     }
 }
+
 .edit-btn {
     background: linear-gradient(135deg, #7c3aed, #2563eb);
     color: white;
@@ -787,6 +826,10 @@ footer {
 .category-card:hover {
     color: #7c3aed;
 }
+
+/* ============================= */
+/* CONTACT SECTION */
+/* ============================= */
 
 .contact-section {
     padding: 70px 8%;
@@ -871,6 +914,10 @@ footer {
     font-weight: bold;
 }
 
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+
 .main-footer {
     background: #18181b;
     color: white;
@@ -928,6 +975,11 @@ footer {
         font-size: 32px;
     }
 }
+
+/* ============================= */
+/* FORM MESSAGES */
+/* ============================= */
+
 .error-message {
     background: #fee2e2;
     color: #991b1b;
@@ -941,6 +993,11 @@ footer {
 .error-message ul {
     margin-left: 18px;
 }
+
+/* ============================= */
+/* CART QUANTITY CONTROLS */
+/* ============================= */
+
 .quantity-control {
     display: flex;
     align-items: center;
@@ -970,6 +1027,11 @@ footer {
     color: #7c3aed;
     font-size: 18px;
 }
+
+/* ============================= */
+/* ADMIN PRODUCT SHOW PAGE */
+/* ============================= */
+
 .show-btn {
     background: linear-gradient(135deg, #0ea5e9, #2563eb);
     color: white;
@@ -1020,6 +1082,11 @@ footer {
         font-size: 32px;
     }
 }
+
+/* ============================= */
+/* LOGIN & REGISTER PAGE */
+/* ============================= */
+
 .login-page {
     min-height: 100vh;
     background: linear-gradient(135deg, #ede9fe, #dbeafe, #fce7f3);
@@ -1093,6 +1160,7 @@ footer {
     text-decoration: none;
     font-weight: bold;
 }
+
 .user-name {
     font-weight: bold;
     color: #7c3aed;
@@ -1113,6 +1181,11 @@ footer {
     cursor: pointer;
     font-weight: bold;
 }
+
+/* ============================= */
+/* CHECKOUT PAGE */
+/* ============================= */
+
 .checkout-page {
     padding: 70px 8%;
     background: #f6f4ff;
@@ -1238,6 +1311,11 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* ============================= */
+/* ADMIN ORDER MANAGEMENT */
+/* ============================= */
+
 .status-badge {
     padding: 7px 12px;
     border-radius: 999px;
@@ -1335,6 +1413,10 @@ footer {
     }
 }
 
+/* ============================= */
+/* ADMIN DASHBOARD */
+/* ============================= */
+
 .dashboard-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1394,6 +1476,57 @@ footer {
     }
 }
 
+.dashboard-subtitle {
+    color: #6b7280;
+    margin-top: 8px;
+    font-size: 16px;
+}
+
+.dashboard-card {
+    transition: 0.3s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+
+.dashboard-panel {
+    margin-top: 35px;
+}
+
+.dashboard-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.dashboard-panel-header h2 {
+    color: #18181b;
+    font-size: 26px;
+}
+
+.dashboard-panel-header a {
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+@media (max-width: 700px) {
+    .dashboard-panel-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
+
+/* ============================= */
+/* AUTH LINKS */
+/* ============================= */
+
 .auth-switch {
     margin-top: 18px;
     color: #4b5563;
@@ -1421,4 +1554,54 @@ footer {
 .login-form input[type="text"]:focus {
     border-color: #7c3aed;
     box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+}
+
+/* ============================= */
+/* PAGINATION */
+/* ============================= */
+
+.pagination-wrapper {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.pagination-info {
+    color: #4b5563;
+    margin-bottom: 18px;
+    font-weight: 500;
+}
+
+.custom-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.custom-pagination a,
+.custom-pagination span {
+    min-width: 42px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #d8ccff;
+    background: white;
+    color: #7c3aed;
+}
+
+.custom-pagination a:hover {
+    background: #f3f0ff;
+}
+
+.custom-pagination .active {
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    color: white;
+    border-color: transparent;
+}
+
+.custom-pagination .disabled {
+    color: #9ca3af;
+    background: #f3f4f6;
+    cursor: not-allowed;
 }

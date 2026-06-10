@@ -38,6 +38,7 @@ Trendora is a Laravel-based e-commerce web application developed with PHP, MySQL
 * Contact section
 * Admin dashboard page
 * Dashboard cards for total products, total orders, and new orders
+* Dashboard recent orders table
 * Admin product management panel
 * Add product
 * Edit product
@@ -57,6 +58,7 @@ Trendora is a Laravel-based e-commerce web application developed with PHP, MySQL
 * Role middleware for admin panel protection
 * Admin panel is accessible only by users with admin role
 * Role-based navigation system
+* Product pagination
 
 ## Database
 
@@ -235,6 +237,8 @@ DB_PORT=3306
 DB_DATABASE=trendora_db
 DB_USERNAME=root
 DB_PASSWORD=
+
+BCRYPT_ROUNDS=10
 ```
 
 6. Run migrations:
@@ -279,7 +283,7 @@ The home page displays featured products, categories, contact section, and navig
 http://127.0.0.1:8000/products
 ```
 
-The products page displays all products. Users can search products by name and filter products by category.
+The products page displays all products with search, category filter, and pagination.
 
 ### Product Detail Page
 
@@ -335,7 +339,7 @@ The admin dashboard displays summary cards for total products, total orders, and
 http://127.0.0.1:8000/admin/products
 ```
 
-The admin products panel allows product management operations such as adding, editing, showing, and deleting products.
+The admin dashboard displays summary cards for total products, total orders, and new orders. It also displays a recent orders table with customer name, total price, order status, and order date. The dashboard includes quick links for managing products, managing orders, and adding new products.
 
 ### Admin Orders Panel
 

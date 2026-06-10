@@ -32,7 +32,12 @@
 
 <section class="admin-page">
     <div class="admin-header">
-        <h1>Admin Dashboard</h1>
+        <div>
+            <h1>Admin Dashboard</h1>
+            <p class="dashboard-subtitle">
+                Welcome back, {{ Auth::user()->name }}. Here is a quick overview of Trendora.
+            </p>
+        </div>
     </div>
 
     <div class="dashboard-cards">
@@ -57,7 +62,47 @@
         <a href="{{ route('admin.orders.index') }}">Manage Orders</a>
         <a href="{{ route('admin.products.create') }}">Add New Product</a>
     </div>
-</section>
 
+    <div class="dashboard-panel">
+        <div class="dashboard-panel-header">
+            <h2>Recent Orders</h2>
+            <a href="{{ route('admin.orders.index') }}">View All Orders</a>
+        </div>
+
+        <div class="admin-table-wrapper">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Order</th>
+                        <th>Customer</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @forelse($recentOrders as $order)
+                        <tr>
+                            <td>#{{ $order->id }}</td>
+                            <td>{{ $order->name }}</td>
+                            <td>${{ number_format($order->total, 2) }}</td>
+                            <td>
+                                <span class="status-badge status-{{ strtolower($order->status) }}">
+                                    {{ $order->status }}
+                                </span>
+                            </td>
+                            <td>{{ $order->created_at->format('d.m.Y H:i') }}</td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="5">No orders yet.</td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
 </body>
 </html>

@@ -84,6 +84,36 @@
             </div>
         @endforelse
     </div>
+
+@if ($products->hasPages())
+    <div class="pagination-wrapper">
+        <p class="pagination-info">
+            Showing {{ $products->firstItem() }} to {{ $products->lastItem() }} of {{ $products->total() }} products
+        </p>
+
+        <div class="custom-pagination">
+            @if ($products->onFirstPage())
+                <span class="disabled">Previous</span>
+            @else
+                <a href="{{ $products->previousPageUrl() }}">Previous</a>
+            @endif
+
+            @for ($page = 1; $page <= $products->lastPage(); $page++)
+                @if ($page == $products->currentPage())
+                    <span class="active">{{ $page }}</span>
+                @else
+                    <a href="{{ $products->url($page) }}">{{ $page }}</a>
+                @endif
+            @endfor
+
+            @if ($products->hasMorePages())
+                <a href="{{ $products->nextPageUrl() }}">Next</a>
+            @else
+                <span class="disabled">Next</span>
+            @endif
+        </div>
+    </div>
+@endif
 </section>
 
 </body>
