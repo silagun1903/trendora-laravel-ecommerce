@@ -16,6 +16,7 @@
     <a href="{{ route('admin.dashboard') }}">Dashboard</a>
     <a href="/">Store</a>
     <a href="{{ route('admin.products.index') }}">Products</a>
+    <a href="{{ route('admin.categories.index') }}">Categories</a>
     <a href="{{ route('admin.products.create') }}">Add Product</a>
     <a href="{{ route('admin.orders.index') }}">Orders</a>
 </nav>

@@ -1605,3 +1605,214 @@ body {
     background: #f3f4f6;
     cursor: not-allowed;
 }
+
+/* ============================= */
+/* ADMIN CATEGORY PAGES */
+/* ============================= */
+
+.admin-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.admin-page-header h1 {
+    font-size: 34px;
+    color: #18181b;
+}
+
+.admin-add-btn {
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.25);
+}
+
+.admin-add-btn:hover {
+    opacity: 0.9;
+}
+
+.success-message {
+    background: #dcfce7;
+    color: #166534;
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.error-message {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.admin-form-wrapper {
+    max-width: 600px;
+    background: #fffef5;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    margin-top: 25px;
+}
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.admin-form label {
+    font-weight: bold;
+    color: #374151;
+}
+
+.admin-form input {
+    padding: 14px 16px;
+    border: 1px solid #d8ccff;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+}
+
+.admin-form input:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+}
+
+.submit-btn {
+    margin-top: 15px;
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    color: white;
+    border: none;
+    padding: 13px 18px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    opacity: 0.9;
+}
+
+.back-btn {
+    display: inline-block;
+    text-align: center;
+    margin-top: 5px;
+    color: #7c3aed;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.error-text {
+    color: #dc2626;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+@media (max-width: 700px) {
+    .admin-page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+
+/* ============================= */
+/* ADMIN HEADER FIX */
+/* ============================= */
+
+.admin-header-main {
+    width: 100%;
+    background: #fffef5;
+    padding: 18px 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.admin-header-main .logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #6d4aff;
+    white-space: nowrap;
+}
+
+.admin-header-main .navbar {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.admin-header-main .navbar a {
+    text-decoration: none;
+    color: #374151;
+    font-weight: 500;
+}
+
+.admin-header-main .navbar a:hover {
+    color: #6d4aff;
+}
+
+.admin-header-main .auth-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    white-space: nowrap;
+}
+
+.admin-header-main .auth-area span {
+    color: #6d4aff;
+    font-weight: bold;
+}
+
+.admin-header-main .logout-btn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 9px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Category delete button fix */
+.admin-table .delete-btn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.admin-table .delete-btn:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+    .admin-header-main {
+        padding: 18px 30px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .admin-header-main .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+}
